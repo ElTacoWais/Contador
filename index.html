@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body onclick="incrementarContador()">
+    <img id="botonModo" src="oscuro.png" onclick="cambiarModo(event);">
+    <div id="botones">
+        <button onclick="decrementarContador(); event.stopPropagation();">Restar 1</button>
+        <button onclick="resetearContador(); event.stopPropagation();">Volver a 0</button>
+    </div>
+    <div id="contador">0</div>
+
+    <script src="main.js"></script>
+</body>
+</html>

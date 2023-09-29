@@ -1,0 +1,48 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background-color: #ddd;
+    color: #000;
+    font-family: Arial, sans-serif;
+}
+#contador{
+    font-size: 100px;
+    height: 100px;
+    margin-top: 300px;
+}
+#botones {
+    position: absolute;
+    top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+button {
+    width: 100%; /* Ajusta este valor al tamaño que desees */
+    height: 100%; /* Ajusta este valor al tamaño que desees */
+    border: none;
+    border-radius: 5px;
+    font-size: 40px;
+    background-color: #aaa; /* Color de fondo del botón */
+    color: #000; /* Color del texto del botón */
+}
+#botonModo {
+    position: absolute;
+    right: 20px; /* Ajusta este valor para mover el botón a la derecha */
+    top: 20px; /* Ajusta este valor para mover el botón hacia arriba */
+    width: 50px; /* Ajusta este valor al tamaño que desees */
+    height: 50px; /* Ajusta este valor al tamaño que desees */
+}
+
+
+
+
+/* Consulta de medios que se activa cuando la pantalla tiene menos de 500 píxeles de ancho */
+@media screen and (max-width: 400px) {
+    #contador{
+        font-size: 10px;
+    }
+  }
