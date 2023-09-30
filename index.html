@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>Contador de Clicks</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
-<body onclick="incrementarContador()">
-    <img id="botonModo" src="oscuro.png" onclick="cambiarModo(event);">
+<body>
     <div id="botones">
-        <button onclick="decrementarContador(); event.stopPropagation();">Restar 1</button>
-        <button onclick="resetearContador(); event.stopPropagation();">Volver a 0</button>
+        <button id="restar">Restar 1</button>
+        <button id="reset">Volver a 0</button>
+        <button id="anterior">Número anterior</button>
     </div>
     <div id="contador">0</div>
-
+    <img id="tema" src="oscuro.png" alt="Cambiar tema">
     <script src="main.js"></script>
 </body>
 </html>
