@@ -55,12 +55,12 @@ document.getElementById('tema').addEventListener('click', function(event) {
     } else {
         document.body.classList.add('tema-oscuro');
         localStorage.setItem('tema', 'oscuro');
-        document.getElementById('tema').src = 'luz.png';
+        document.getElementById('tema').src = 'okk.png';
         
    }
 });
 
 if (localStorage.getItem('tema') === 'oscuro') {
    document.body.classList.add('tema-oscuro');
-   document.getElementById('tema').src = 'oscuro.png';
+   document.getElementById('tema').src = 'ok.png';
 }
