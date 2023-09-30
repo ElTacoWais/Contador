@@ -1,3 +1,12 @@
+//service worker
+if('serviceWorker' in navigator){
+    navigator.serviceWorker.register('./sw.js')
+    .then(reg => console.log('Registro de SW exitoso',reg))
+    .catch(err => console.warn('Error al registrar SW',err))
+}
+
+
+
 let contador = document.getElementById('contador');
 let cuenta = localStorage.getItem('cuenta') ? Number(localStorage.getItem('cuenta')) : 0;
 let cuentaAnterior = localStorage.getItem('cuentaAnterior') ? Number(localStorage.getItem('cuentaAnterior')) : 0;
@@ -41,7 +50,7 @@ document.getElementById('tema').addEventListener('click', function(event) {
     if (localStorage.getItem('tema') === 'oscuro') {
         document.body.classList.remove('tema-oscuro');
         localStorage.setItem('tema', 'claro');
-        document.getElementById('tema').src = 'oscuro.png';
+        document.getElementById('tema').src = 'ok.png';
         
     } else {
         document.body.classList.add('tema-oscuro');
