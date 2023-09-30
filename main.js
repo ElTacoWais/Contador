@@ -50,17 +50,17 @@ document.getElementById('tema').addEventListener('click', function(event) {
     if (localStorage.getItem('tema') === 'oscuro') {
         document.body.classList.remove('tema-oscuro');
         localStorage.setItem('tema', 'claro');
-        document.getElementById('tema').src = 'ok.png';
+        document.getElementById('tema').src = 'oscuro.png';
         
     } else {
         document.body.classList.add('tema-oscuro');
         localStorage.setItem('tema', 'oscuro');
-        document.getElementById('tema').src = 'okk.png';
+        document.getElementById('tema').src = 'luz.png';
         
    }
 });
 
 if (localStorage.getItem('tema') === 'oscuro') {
    document.body.classList.add('tema-oscuro');
-   document.getElementById('tema').src = 'ok.png';
+   document.getElementById('tema').src = 'oscuro.png';
 }
