@@ -1,53 +1,57 @@
-var contador = 0;
-var modoOscuro = false;
+let contador = document.getElementById('contador');
+let cuenta = localStorage.getItem('cuenta') ? Number(localStorage.getItem('cuenta')) : 0;
+let cuentaAnterior = localStorage.getItem('cuentaAnterior') ? Number(localStorage.getItem('cuentaAnterior')) : 0;
+contador.textContent = cuenta;
 
-window.onload = function() {
-    // Intenta cargar el contador y el modo oscuro desde localStorage cuando la página se carga
-    var contadorGuardado = localStorage.getItem('contador');
-    var modoOscuroGuardado = localStorage.getItem('modoOscuro');
-    if (contadorGuardado) {
-        contador = parseInt(contadorGuardado);
-        document.getElementById('contador').innerText = contador;
-    }
-    if (modoOscuroGuardado) {
-        modoOscuro = JSON.parse(modoOscuroGuardado);
-        actualizarModo();
-    }
-}
+document.body.addEventListener('click', function() {
+    cuenta++;
+    localStorage.setItem('cuenta', cuenta);
+    contador.textContent = cuenta;
+});
 
-function incrementarContador() {
-    contador++;
-    actualizarContador();
-}
-
-function decrementarContador() {
-    if (contador > 0) {
-        contador--;
-        actualizarContador();
-    }
-}
-
-function resetearContador() {
-    contador = 0;
-    actualizarContador();
-}
-
-function cambiarModo(event) {
-    modoOscuro = !modoOscuro;
-    actualizarModo();
+document.getElementById('restar').addEventListener('click', function(event) {
     event.stopPropagation();
-}
+    if (cuenta > 0) {
+        cuenta--;
+        localStorage.setItem('cuenta', cuenta);
+        contador.textContent = cuenta;
+    }
+});
 
-function actualizarContador() {
-    document.getElementById('contador').innerText = contador;
-    // Guarda el contador en localStorage cada vez que se actualiza
-    localStorage.setItem('contador', contador);
-}
+document.getElementById('reset').addEventListener('click', function(event) {
+    event.stopPropagation();
+    localStorage.setItem('cuentaAnterior', cuenta);
+    cuenta = 0;
+    localStorage.setItem('cuenta', cuenta);
+    contador.textContent = cuenta;
+});
 
-function actualizarModo() {
-    document.body.style.backgroundColor = modoOscuro ? '#000' : '#ddd';
-    document.body.style.color = modoOscuro ? '#ddd' : '#000';
-    document.getElementById('botonModo').src = modoOscuro ? 'luz.png' : 'oscuro.png';
-    // Guarda el modo oscuro en localStorage cada vez que se actualiza
-    localStorage.setItem('modoOscuro', modoOscuro);
+document.getElementById('anterior').addEventListener('click', function(event) {
+    event.stopPropagation();
+    if (localStorage.getItem('cuentaAnterior')) {
+        cuenta = Number(localStorage.getItem('cuentaAnterior'));
+        localStorage.setItem('cuenta', cuenta);
+        contador.textContent = cuenta;
+    }
+});
+
+document.getElementById('tema').addEventListener('click', function(event) {
+    event.stopPropagation();
+    
+    if (localStorage.getItem('tema') === 'oscuro') {
+        document.body.classList.remove('tema-oscuro');
+        localStorage.setItem('tema', 'claro');
+        document.getElementById('tema').src = 'oscuro.png';
+        
+    } else {
+        document.body.classList.add('tema-oscuro');
+        localStorage.setItem('tema', 'oscuro');
+        document.getElementById('tema').src = 'luz.png';
+        
+   }
+});
+
+if (localStorage.getItem('tema') === 'oscuro') {
+   document.body.classList.add('tema-oscuro');
+   document.getElementById('tema').src = 'oscuro.png';
 }
