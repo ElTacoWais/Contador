@@ -3,46 +3,46 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 100vh;
     margin: 0;
-    background-color: #ddd;
-    color: #000;
-    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #000000;
 }
-#contador{
-    font-size: 100px;
-    height: 100px;
-    margin-top: 300px;
+
+#contador {
+    font-size: 3em;
 }
+
 #botones {
     position: absolute;
-    top: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+    top: 10px;
 }
-button {
-    width: 100%; /* Ajusta este valor al tamaño que desees */
-    height: 100%; /* Ajusta este valor al tamaño que desees */
+
+#botones button {
     border: none;
-    border-radius: 5px;
-    font-size: 40px;
-    background-color: #aaa; /* Color de fondo del botón */
-    color: #000; /* Color del texto del botón */
+    border-radius: 10px;
+    background-color: #ffffff;
+    color: #000000;
 }
-#botonModo {
+
+#tema {
     position: absolute;
-    right: 20px; /* Ajusta este valor para mover el botón a la derecha */
-    top: 20px; /* Ajusta este valor para mover el botón hacia arriba */
-    width: 50px; /* Ajusta este valor al tamaño que desees */
-    height: 50px; /* Ajusta este valor al tamaño que desees */
+    top: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
 }
 
+body.tema-oscuro {
+    background-color: #000000;
+    color: #ffffff;
+}
 
+body.tema-oscuro #botones button {
+    background-color: #222;
+    color: #ffffff;
+}
 
-
-/* Consulta de medios que se activa cuando la pantalla tiene menos de 500 píxeles de ancho */
-@media screen and (max-width: 400px) {
-    #contador{
-        font-size: 10px;
-    }
-  }
+body.tema-oscuro #tema {
+    content: url('luz.png');
+}
