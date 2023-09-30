@@ -60,7 +60,7 @@ body.tema-oscuro #botones button {
 }
 
 body.tema-oscuro #tema {
-    content: url('okk.png');
+    content: url('luz.png');
 }
 
 /* Media Queries */
