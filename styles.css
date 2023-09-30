@@ -1,28 +1,40 @@
 body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
     margin: 0;
     background-color: #f0f0f0;
     color: #000000;
 }
 
+#contenedor {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
 #contador {
-    font-size: 3em;
+    font-size: 150px;
 }
 
 #botones {
     position: absolute;
     top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 #botones button {
+    height: 50px;
+    width: 250px;
+    font-size: 30px;
     border: none;
     border-radius: 10px;
     background-color: #ffffff;
     color: #000000;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 #tema {
@@ -35,14 +47,36 @@ body {
 
 body.tema-oscuro {
     background-color: #000000;
+}
+
+body.tema-oscuro #contenedor {
     color: #ffffff;
 }
 
 body.tema-oscuro #botones button {
-    background-color: #222;
-    color: #ffffff;
+    color: #f0f0f0;
+    background-color: #222222;
 }
 
 body.tema-oscuro #tema {
     content: url('luz.png');
+}
+
+/* Media Queries */
+@media screen and (max-width: 1000px) {
+   
+    #contador {
+        font-size: 200px;
+    }
+
+    #botones button {
+        height: 70px;
+        width: 100%;
+        font-size: 50px;
+    }
+
+    #tema {
+        width: 70px;
+        height: 70px;
+    }
 }
